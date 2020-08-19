@@ -15,8 +15,9 @@ public class DrowerDescriptionAnime {
 
 	public static void main(String[] args) {
 		DrowerDescriptionAnime drower = new DrowerDescriptionAnime();
-		drower.getFilesInFolder(FOLDER_WITH_FOLREDS);
-
+		
+//		drower.getFilesInFolder(FOLDER_WITH_FOLREDS);
+		drower.getFilesInFolder(new Scanner(System.in).nextLine());
 		drower.goAllFolder();
 	}
 
