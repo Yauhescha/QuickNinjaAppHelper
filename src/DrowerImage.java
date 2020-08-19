@@ -1,5 +1,4 @@
 
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -34,12 +33,14 @@ public class DrowerImage {
 		graphics = image.getGraphics();
 		graphics.setColor(Color.BLACK);
 		graphics.setFont(font);
-		for (int i = 0; i < rowCount; i++)
-			for (int j = 0; j < colCount; j++) {
-				int x = j * curFontSize , 
-					y = i * rowCount + curFontSize;
-				graphics.drawString(text.charAt(j + i * rowCount) + "", x, y);
-			}
+		try {
+			for (int i = 0; i < rowCount; i++)
+				for (int j = 0; j < colCount; j++) {
+					int x = j * curFontSize, y = i * rowCount + curFontSize;
+					graphics.drawString(text.charAt(j + i * rowCount) + "", x, y);
+				}
+		} catch (Exception ex) {
+		}
 		graphics.dispose();
 	}
 
@@ -47,11 +48,16 @@ public class DrowerImage {
 		this.font = new Font(FONT_NAME, Font.BOLD, fontSize);
 		this.image = new BufferedImage(PHOTO_WIDTH, PHOTO_HEIGHT, BufferedImage.TYPE_INT_ARGB);
 		this.curFontSize = fontSize;
-		this.text=text;
+		this.text = text;
 	}
 
-	public static void saveImage(BufferedImage img, String fileName, String filExtension) throws IOException {
-		ImageIO.write(img, "png", new File(fileName+"."+filExtension));
+	public static void saveImage(BufferedImage img, String fileName, String filExtension) {
+		try {
+			ImageIO.write(img, "png", new File(fileName + "." + filExtension));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public BufferedImage draw(String text) {
