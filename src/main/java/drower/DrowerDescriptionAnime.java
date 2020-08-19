@@ -1,3 +1,4 @@
+package main.java.drower;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;

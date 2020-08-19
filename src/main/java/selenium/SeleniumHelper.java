@@ -1,3 +1,4 @@
+package main.java.selenium;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
