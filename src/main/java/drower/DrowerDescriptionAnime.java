@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import main.java.getter.GetterFilesInFolder;
+
 public class DrowerDescriptionAnime {
 	public String fileDescription;
 
@@ -30,12 +32,7 @@ public class DrowerDescriptionAnime {
 
 	public void getFilesInFolder(String folderString) {
 		File folder = new File(folderString);
-		File[] folderEntries = folder.listFiles();
-		for (File entry : folderEntries) {
-			if (entry.isDirectory()) {
-				folderList.add(entry);
-			}
-		}
+		folderList = GetterFilesInFolder.getFilesInFolderAsList(folder);
 	}
 
 	private void goAllFolder() {
