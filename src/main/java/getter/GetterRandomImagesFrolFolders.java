@@ -87,7 +87,7 @@ public class GetterRandomImagesFrolFolders {
 		return i;
 	}
 
-	private void renameFileInFolder(String toFolder, File folder, File[] folderEntries) {
+	private void renameFileInFolder(String toFolder, File folder, File[] folderEntries) {\
 		for (File entry : folderEntries) {
 			String name = toFolder + "\\" + folder.getName();
 			name = name.replace("ОВА 1", "").replace("ОВА 2", "").replace("ОВА 3", "").replace("ОВА 4", "")
