@@ -103,6 +103,7 @@ public class GetterRandomImagesFrolFolders {
 				.replace("третий сезон", "").replace("четвертый сезон", "").replace("пятый сезон", "")
 				.replace("фильм второй", "").replace("фильм третий", "").replace("фильм четвертый", "")
 				.replace("фильм пятый", "").replace("фильм", "").replace("спэшл", "").replace("  ", " ").trim();
+		
 		return name;
 	}
 
