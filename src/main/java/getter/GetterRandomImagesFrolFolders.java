@@ -96,7 +96,7 @@ public class GetterRandomImagesFrolFolders {
 			break;
 		}
 	}
-
+	
 	private String replaceBadWords(String name) {
 		name = name.replace("ОВА 1", "").replace("ОВА 2", "").replace("ОВА 3", "").replace("ОВА 4", "")
 				.replace("ОВА", "").replace("первый сезон", "").replace("второй сезон", "")
