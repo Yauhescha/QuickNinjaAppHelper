@@ -96,14 +96,14 @@ public class GetterRandomImagesFrolFolders {
 			break;
 		}
 	}
-	
+
 	private String replaceBadWords(String name) {
 		name = name.replace("ОВА 1", "").replace("ОВА 2", "").replace("ОВА 3", "").replace("ОВА 4", "")
-				.replace("ОВА", "").replace("первый сезон", "").replace("второй сезон", "")
-				.replace("третий сезон", "").replace("четвертый сезон", "").replace("пятый сезон", "")
-				.replace("фильм второй", "").replace("фильм третий", "").replace("фильм четвертый", "")
-				.replace("фильм пятый", "").replace("фильм", "").replace("спэшл", "").replace("  ", " ").trim();
-		
+				.replace("ОВА", "").replace("первый сезон", "").replace("второй сезон", "").replace("третий сезон", "")
+				.replace("четвертый сезон", "").replace("пятый сезон", "").replace("фильм второй", "")
+				.replace("фильм третий", "").replace("фильм четвертый", "").replace("фильм пятый", "")
+				.replace("фильм", "").replace("спэшл", "").replace("  ", " ").trim();
+
 		return name;
 	}
 
