@@ -29,12 +29,12 @@ public class GetterRandomImagesFrolFolders {
 	}
 
 	private static void init(GetterRandomImagesFrolFolders getter) {
-		System.out.println("Please, write path to folder with folders with images \nor path to folder with images");
+		System.out.println("Please, write path to folder with folders with images or path to folder with images");
 		getter.setFolderWithImages(sc.nextLine());
 
 		System.out.println("Is it folder with images (type 'true') or with folders (type 'false')");
 		getter.setInFolderOnlyFiles(sc.nextBoolean());
-
+		sc.nextLine();
 		System.out.println("Please, write foldername to save images");
 		getter.setFolderToSave(sc.nextLine());
 
@@ -49,14 +49,14 @@ public class GetterRandomImagesFrolFolders {
 
 	private void renameAllFiles() {
 		for (int folderNumber = 1; folderList.size() > 0; folderNumber++)
-			renameRandomFiles(folderWithImages + "\\" + folderToSave + folderNumber);
+			renameRandomFiles(folderToSave + "\\" + folderNumber);
 	}
 
 	private void renameRandomFiles(String toFolder) {
 
 		CreateFolderToRename(toFolder);
 
-		for (int i = 0; i < maxFilesInOneFolder; i++) {
+		for (int i = 0; i < maxFilesInOneFolder && folderList.size()>0; i++) {
 			temp = random.nextInt(folderList.size());
 
 			File folder = folderList.get(temp);
