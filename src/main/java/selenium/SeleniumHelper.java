@@ -12,36 +12,32 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SeleniumHelper {
 	private ArrayList<File> listFiles = new ArrayList<File>();
-
 	private ArrayList<String> listQuest = new ArrayList<String>();
 	private ArrayList<String> listAnswer = new ArrayList<String>();
 
-	private String folderWithFiles = "D:\\anime-description\\";
-	private String folderWithFilesSTANDART = "D:\\anime-description\\";
+
+	private String folderWithFiles;
 	private StringBuilder builder = new StringBuilder();
 
-	private String filename, temp;
+	private String filename;
 	private String quest, answer;
-	private final String STANDART_QUEST = "Название?";
+	private final String STANDART_QUEST = "?";
 	private static Scanner sc;
 
 	private static final String QUEST_SELECTOR = "span.question input";
 	private static final String ANSWER_SELECTOR = "span.answer input";
+	private final int ANSWER_LETTER_COUNT=14;
+	private final int QUEST_LETTER_COUNT=25;
 
 	public SeleniumHelper(String folder) {
-		this.folderWithFiles =folderWithFilesSTANDART+ folder;
+		this.folderWithFiles =folder;
 	}
 
 	public static void main(String[] args) {
-		System.setProperty("webdriver.chrome.driver", "chromedriver84.exe");
-
-		WebDriver driver = new ChromeDriver();
-		sc = new Scanner(System.in);
-
-		driver.navigate().to("https://quickappninja.com/");
+		WebDriver driver = init();
 		while (true) {
 			try {
-				System.out.println("write folder to getting answers and quests");
+				System.out.println("Please, write path folder with images to getting answers and quests");
 				String folderToParse = sc.nextLine();
 				if (folderToParse.equals("break"))
 					break;
@@ -49,7 +45,7 @@ public class SeleniumHelper {
 				SeleniumHelper helper = new SeleniumHelper(folderToParse);
 				helper.run();
 
-				System.out.println("write to push");
+				System.out.println("Press any key to write quests and answers");
 				sc.nextLine();
 				sendQuest(helper, driver);
 
@@ -58,6 +54,16 @@ public class SeleniumHelper {
 				// TODO: handle exception
 			}
 		}
+	}
+
+	private static WebDriver init() {
+		System.setProperty("webdriver.chrome.driver", "chromedriver84.exe");
+
+		WebDriver driver = new ChromeDriver();
+		sc = new Scanner(System.in);
+
+		driver.navigate().to("https://quickappninja.com/");
+		return driver;
 	}
 
 	private static void sendAnswer(SeleniumHelper helper, WebDriver driver) {
@@ -96,18 +102,18 @@ public class SeleniumHelper {
 	}
 
 	private void getQuestAndAnswer() {
-		if (filename.length() <= 14) {
+		if (filename.length() <= ANSWER_LETTER_COUNT) {
 			quest = STANDART_QUEST;
 			answer = filename;
 		} else {
 			builder.setLength(0);
 			builder.append(filename);
-			answer = builder.substring(builder.length() - 14, builder.length());
-			builder.delete(builder.length() - 14, builder.length());
-			if (builder.length() <= 25)
+			answer = builder.substring(builder.length() - ANSWER_LETTER_COUNT, builder.length());
+			builder.delete(builder.length() - ANSWER_LETTER_COUNT, builder.length());
+			if (builder.length() <= QUEST_LETTER_COUNT)
 				quest = builder.toString();
 			else
-				quest = builder.substring(builder.length() - 25, builder.length());
+				quest = builder.substring(builder.length() - QUEST_LETTER_COUNT, builder.length());
 		}
 	}
 
