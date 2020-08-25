@@ -25,6 +25,7 @@ public class DrowerDescriptionAnime {
 		drower.setFileDescription(scanner.nextLine());
 		System.out.println("Please, write path to save file");
 		drower.setFolderToSave(scanner.nextLine());
+		
 		System.out.println("Please, write path to directory with folders with text to image");
 		drower.getFilesInFolder(scanner.nextLine());
 		drower.goAllFolder();
@@ -65,6 +66,7 @@ public class DrowerDescriptionAnime {
 
 	public void setFolderToSave(String folderToSave) {
 		FolderToSave = folderToSave;
+		new File(folderToSave).mkdirs();
 	}
 
 }
