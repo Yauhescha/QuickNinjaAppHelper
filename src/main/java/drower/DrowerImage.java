@@ -32,6 +32,8 @@ public class DrowerImage {
 
 	private void drawText(int rowCount, int colCount) {
 		graphics = image.getGraphics();
+		graphics.setColor(Color.WHITE);
+		graphics.fillRect(0, 0, PHOTO_WIDTH, PHOTO_HEIGHT);
 		graphics.setColor(Color.BLACK);
 		graphics.setFont(font);
 		try {
