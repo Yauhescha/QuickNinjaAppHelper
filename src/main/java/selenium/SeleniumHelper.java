@@ -93,10 +93,6 @@ public class SeleniumHelper {
 			getQuestAndAnswer();
 			listQuest.add(quest);
 			listAnswer.add(answer);
-			System.out.println(filename);
-			System.out.println(quest);
-			System.out.println(answer);
-			System.out.println();
 		}
 
 	}
