@@ -87,7 +87,7 @@ public class SeleniumHelper {
 	}
 
 	private void readAllFiles() {
-		for (Iterator iterator = listFiles.iterator(); iterator.hasNext();) {
+		for (Iterator<File> iterator = listFiles.iterator(); iterator.hasNext();) {
 			File file = (File) iterator.next();
 			filename = file.getName().replace(".png", "").trim();
 			getQuestAndAnswer();
