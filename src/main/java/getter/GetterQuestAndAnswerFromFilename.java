@@ -26,7 +26,7 @@ public class GetterQuestAndAnswerFromFilename {
 	}
 
 	private void readAllFiles() {
-		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+		for (Iterator<File> iterator = list.iterator(); iterator.hasNext();) {
 			File file = (File) iterator.next();
 			filename = file.getName().replace(".png", "").trim();
 			getQuestAndAnswer();
