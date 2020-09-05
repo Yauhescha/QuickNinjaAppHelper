@@ -17,6 +17,8 @@ public class DrowerDescriptionAnime {
 
 	private DrowerImage drowerImage = new DrowerImage();
 
+	private Scanner sc;
+
 	public static void main(String[] args) {
 		DrowerDescriptionAnime drower = new DrowerDescriptionAnime();
 		Scanner scanner = new Scanner(System.in);
@@ -50,7 +52,7 @@ public class DrowerDescriptionAnime {
 	private String readText(File folder) {
 		String text = "";
 		try {
-			Scanner sc = new Scanner(new File(folder.getAbsoluteFile() + separator + fileDescription));
+			sc = new Scanner(new File(folder.getAbsoluteFile() + separator + fileDescription));
 			while (sc.hasNextLine()) {
 				text += sc.nextLine();
 			}
