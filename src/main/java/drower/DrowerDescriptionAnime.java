@@ -21,15 +21,16 @@ public class DrowerDescriptionAnime {
 
 	public static void main(String[] args) {
 		DrowerDescriptionAnime drower = new DrowerDescriptionAnime();
-		Scanner scanner = new Scanner(System.in);
+		try (Scanner scanner = new Scanner(System.in)) {
+			System.out.println("Please, write filename.txt file with text to image");
+			drower.setFileDescription(scanner.nextLine());
+			System.out.println("Please, write path to save file");
+			drower.setFolderToSave(scanner.nextLine());
+			
+			System.out.println("Please, write path to directory with folders with text to image");
+			drower.getFilesInFolder(scanner.nextLine());
+		}
 
-		System.out.println("Please, write filename.txt file with text to image");
-		drower.setFileDescription(scanner.nextLine());
-		System.out.println("Please, write path to save file");
-		drower.setFolderToSave(scanner.nextLine());
-		
-		System.out.println("Please, write path to directory with folders with text to image");
-		drower.getFilesInFolder(scanner.nextLine());
 		drower.goAllFolder();
 	}
 
