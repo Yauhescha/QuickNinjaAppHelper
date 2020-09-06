@@ -67,7 +67,7 @@ public class SeleniumHelper {
 	}
 
 	private static void sendAnswer(SeleniumHelper helper, WebDriver driver) {
-		List<WebElement> findElements = driver.findElements(By.cssSelector(helper.ANSWER_SELECTOR));
+		List<WebElement> findElements = driver.findElements(By.cssSelector(SeleniumHelper.ANSWER_SELECTOR));
 		for (int i = 0; i < findElements.size(); i++) {
 			findElements.get(i).sendKeys(helper.listAnswer.get(i));
 		}
