@@ -9,7 +9,7 @@ public class GetterQuestAndAnswerFromFilename {
 	private String folderWithFiles = "D:\\anime-description\\folder1";
 	private StringBuilder builder = new StringBuilder();
 
-	private String filename, temp;
+	private String filename;
 	private String quest, answer;
 	private final String STANDART_QUEST = "Название?";
 
